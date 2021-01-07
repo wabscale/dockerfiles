@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  goland:
+    build: .
+    image: d.bigj.dev/goland:2019.3.1
+    container_name: goland
+    volumes:
+      - "/etc/fonts:/etc/fonts:ro"
+      - "/usr/share/fonts:/usr/share/fonts:ro"
+
+      - "/usr/share/gtk-3.0:/usr/share/gtk-3.0"
+      - "/usr/share/themes:/usr/share/themes"
+
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
+      - "$HOME:/root:rw"
+    environment:
+      - "VERSION=2019.3.1"
+
+      - "DISPLAY=unix$DISPLAY"
+      - "JAVA_HOME=/opt/goland/jre64"
+    network_mode: "host"

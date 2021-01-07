@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  burp:
+    build: .
+    image: d.bigj.dev/burpsuite:latest
+    container_name: burpsuite
+    ports:
+      - "0.0.0.0:8080:8080"
+    environment:
+      - "DISPLAY=$DISPLAY"
+    volumes:
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
+    network_mode: "host"
+

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+
+cd $(dirname $(realpath $0))
+
+if [ "$#" != "0" ]; then
+    FILE_TO_OPEN=$1
+    DIR=`dirname $FILE_TO_OPEN`
+    DIR_TO_MOUNT=`realpath $DIR`
+    docker-compose run -d --rm -e FILE_TO_OPEN=$FILE_TO_OPEN darktable
+else
+    docker-compose run -d --rm darktable
+fi

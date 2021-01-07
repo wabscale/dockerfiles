@@ -1,0 +1,4 @@
+#!/bin/bash
+
+DCFILE=$(dirname $(realpath $0))/docker-compose.yml
+docker-compose -f ${DCFILE} up -d --force-recreate

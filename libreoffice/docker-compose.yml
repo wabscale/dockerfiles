@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  libreoffice:
+    build: .
+    image: d.bigj.dev/libreoffice:latest
+    container_name: libreoffice
+    volumes:
+      - "/etc/fonts:/etc/fonts:ro"
+      - "/usr/share/fonts:/usr/share/fonts:ro"
+      - "$HOME:/home/user:rw"
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
+    environment:
+      - XAUTHORITY=/root/.Xauthority
+      - DISPLAY=$DISPLAY
+    network_mode: "none"
+    

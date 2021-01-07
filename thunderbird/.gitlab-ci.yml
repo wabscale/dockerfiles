@@ -1,0 +1,13 @@
+stages:
+  - deploy
+
+before_script:
+  - docker login
+
+deploy_it:
+  stage: deploy
+  tags:
+    - server-tag
+  script:
+    - docker-compose build
+    - docker-compose push

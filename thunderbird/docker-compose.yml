@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  tbird:
+    build: .
+    image: d.bigj.dev/tbird:latest
+    container_name: tbird
+    privileged: true
+    network_mode: "host"
+    volumes:
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
+      - "./.thunderbird:/root/.thunderbird"
+
+      - "/etc/machine-id:/etc/machine-id:ro"
+      - "/etc/localtime:/etc/localtime"
+      - "/etc/fonts:/etc/fonts:ro"
+
+      - "/usr/share/fonts:/usr/share/fonts:ro"
+      - "/usr/share/themes:/usr/share/themes:ro"
+      - "/usr/share/gtk-3.0/settings.ini:/usr/share/gtk-3.0/settings.ini:ro"
+    environment:
+      - "DISPLAY=$DISPLAY"

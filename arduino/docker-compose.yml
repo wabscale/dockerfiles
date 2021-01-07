@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  arduino:
+    build: .
+    image: d.bigj.dev/arduino:1.8.10
+    container_name: arduino
+    volumes:
+      - "/etc/fonts:/etc/fonts:ro"
+      - "/usr/share/fonts:/usr/share/fonts:ro"
+
+      - "/usr/share/gtk-3.0:/usr/share/gtk-3.0"
+      - "/usr/share/themes:/usr/share/themes"
+
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
+      - "./.data:/root:rw"
+    environment:
+      - "DISPLAY=unix$DISPLAY"
+    network_mode: "host"
+    privileged: true

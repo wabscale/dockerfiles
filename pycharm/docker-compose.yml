@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  pycharm:
+    build: .
+    image: d.bigj.dev/pycharm:2020.1
+    volumes:
+      - "/etc/fonts:/etc/fonts:ro"
+      - "/usr/share/fonts:/usr/share/fonts:ro"
+
+      - "/usr/share/themes:/usr/share/themes"
+
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
+      - "$HOME:/home/user:rw"
+    environment:
+      - "DISPLAY=unix$DISPLAY"
+      - "JAVA_HOME=/opt/pycharm/jre64"
+    network_mode: "host"

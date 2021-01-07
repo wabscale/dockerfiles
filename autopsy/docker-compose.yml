@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  autopsy:
+    build: .
+    image: d.bigj.dev/autopsy:latest
+    container_name: autopsy
+    environment:
+      - "DISPLAY=$DISPLAY"
+    volumes:
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
+    #network_mode: "host"
+

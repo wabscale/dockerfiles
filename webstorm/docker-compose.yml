@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  webstorm:
+    build: .
+    image: d.bigj.dev/webstorm:2020.2.1
+    container_name: webstorm
+    volumes:
+      - "/etc/fonts:/etc/fonts:ro"
+      - "/usr/share/fonts:/usr/share/fonts:ro"
+
+      - "/usr/share/gtk-3.0:/usr/share/gtk-3.0"
+      - "/usr/share/themes:/usr/share/themes"
+
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
+      - "$HOME:/home/node:rw"
+    environment:
+      - "VERSION=2020.2.1"
+
+      - "DISPLAY=unix$DISPLAY"
+      - "JAVA_HOME=/opt/webstorm/jre64"
+    network_mode: "host"

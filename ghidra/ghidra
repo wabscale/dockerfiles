@@ -1,0 +1,8 @@
+#!/bin/sh
+
+ghidra_exe=`readlink -f $0`
+ghidra_dir=`dirname $ghidra_exe`
+cd /$ghidra_dir
+
+mkdir -p .ghidra
+docker-compose run -d --rm ghidra

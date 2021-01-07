@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  ghidra:
+    build: .
+    image: d.bigj.dev/ghidra:latest
+    volumes:
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
+      - "$HOME/ctf:/CTF"
+      - "$HOME/osiris:/OSIRIS"
+      - "$HOME/vola:/VOLA"
+      - "./.ghidra:/home/user/.ghidra"
+      - "./projects:/home/user/projects"
+    environment:
+      - "DISPLAY=unix$DISPLAY"
+    networks:
+      fake:
+
+networks:
+  fake:
+    internal: true

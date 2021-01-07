@@ -1,0 +1,34 @@
+version: '3'
+
+# Maintainer: big_J
+
+## docker networking ##
+# https://docs.docker.com/network/bridge/
+# https://docs.docker.com/config/containers/container-networking/
+# https://docs.docker.com/compose/networking/
+
+## phpmyadmin ##
+# https://github.com/phpmyadmin/docker
+
+## mysql ##
+# https://github.com/docker-library/docs/tree/master/mysql
+
+services:
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.7
+    environment:
+      - PMA_HOST=server
+    links:
+      - "mysql:server"
+    ports:
+      - "5000:80"
+  mysql:
+    image: mariadb:10.4
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      - MYSQL_USER=username
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=password
+    ports:
+      - "3306:3306"
+    

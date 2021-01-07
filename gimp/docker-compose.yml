@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  gimp:
+    build: .
+    image: d.bigj.dev/gimp:latest
+    container_name: gimp
+    volumes:
+      - "$HOME:/home/user"
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
+      - "/usr/share/fonts:/usr/share/fonts"
+    environment:
+      - "DISPLAY=unix$DISPLAY"

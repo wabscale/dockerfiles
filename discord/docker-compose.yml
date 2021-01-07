@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  discord:
+    image: d.bigj.dev/discord:latest
+    build: .
+    container_name: discord
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ~/downloads:/root/downloads
+      - ~/.config/discord:/root/.config/discord
+    environment:
+      DISPLAY: $DISPLAY
+    devices:
+      - /dev/snd

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+
+cd $(dirname $(realpath $0))
+docker-compose up -d minecraft

@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  darktable:
+    build: .
+    image: d.bigj.dev/darktable:latest
+    container_name: darktable
+    volumes:
+      - "$HOME:/root"
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
+      - "/usr/share/fonts:/usr/share/fonts"
+    environment:
+      - "DISPLAY=unix$DISPLAY"

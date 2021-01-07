@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cd $(dirname $(realpath $0))
+
+echo wireshark
+docker-compose run -d --rm wireshark

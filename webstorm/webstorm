@@ -1,0 +1,16 @@
+#!/bin/sh
+
+if [ "$#" != "0" ]; then
+    FILE_TO_OPEN=`realpath $1`
+fi
+
+cd $(dirname $(realpath $0))
+
+echo
+docker-compose \
+    up -d
+
+# -d \
+#     --entrypoint /opt/pycharm/bin/pycharm.sh \
+#     pycharm \
+#     $FILE_TO_OPEN

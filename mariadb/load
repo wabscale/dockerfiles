@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# load <db name> <sql file>
+
+DCFILE=$(dirname $(realpath $0))/docker-compose.yml
+docker-compose -f ${DCFILE} exec -T mysql mysql -u root --password=password -h 127.0.0.1 temp < $1

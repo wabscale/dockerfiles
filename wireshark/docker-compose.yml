@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  wireshark:
+    build: .
+    image: d.bigj.dev/wireshark:latest
+    container_name: wireshark
+    privileged: true
+    volumes:
+      - "./data:/root:rw"
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
+    environment:
+      - DISPLAY=$DISPLAY
+    network_mode: "host"
+    

@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  rawtherapee:
+    build: .
+    image: d.bigj.dev/rawtherapee:latest
+    container_name: rawtherapee
+    volumes:
+      - "$HOME:/root"
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
+      - "/usr/share/fonts:/usr/share/fonts"
+    environment:
+      - "DISPLAY=unix$DISPLAY"

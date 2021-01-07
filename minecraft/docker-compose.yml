@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  minecraft:
+    build: .
+    image: d.bigj.dev/minecraft:latest
+    volumes:
+      - "/tmp/.X11-unix:/tmp/.X11-unix:rw"
+      - "./.minecraft:/root/.minecraft:rw"
+      - "/dev/snd:/dev/snd"
+    environment:
+      - "DISPLAY=unix$DISPLAY"
+    # devices:
+    #   - "/dev/snd"
+    network_mode: "host"
+    mem_reservation: 10g
+    privileged: true

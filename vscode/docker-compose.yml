@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  vscode:
+    build: .
+    environment:
+      DISPLAY: $DISPLAY
+    volumes:
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
+      - "$HOME:/HOST"
+      - "./.vscode:/home/user"
+    network_mode: 'host'
